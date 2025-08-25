@@ -52,8 +52,6 @@ func TestGetApiKey(t *testing.T) {
 	headers = http.Header{}
 	headers.Set("Authorization", "ApiKey Hello World!")
 	str, err = GetAPIKey(headers)
-	assertError(t, err)
-	assertLen(t, str, 0)
-	//requireNoError(t, err)
-	//assertEqual(t, str, "Hello")
+	requireNoError(t, err)
+	assertEqual(t, str, "Hello")
 }
